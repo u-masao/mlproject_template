@@ -82,7 +82,11 @@ test_environment:
 # PROJECT RULES                                                                 #
 #################################################################################
 
+train:
+	poetry run python -m src.models.train_model
 
+mlflow_ui:
+	poetry run mlflow ui
 
 #################################################################################
 # Self Documenting Commands                                                     #
