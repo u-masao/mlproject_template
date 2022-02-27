@@ -24,8 +24,12 @@ def objective_wrapper(x, y, **kwargs):
             mlflow_params["svc_c"] = svc_c
         else:
             rf_max_depth = trial.suggest_int("rf_max_depth", 2, 32, log=True)
+            rf_n_estimators = trial.suggest_int(
+                "rf_n_estimators", 2, 100, log=False
+            )
             classifier_obj = sklearn.ensemble.RandomForestClassifier(
-                max_depth=rf_max_depth, n_estimators=10
+                max_depth=rf_max_depth,
+                n_estimators=rf_n_estimators,
             )
             mlflow_params["rf_max_depth"] = rf_max_depth
 
