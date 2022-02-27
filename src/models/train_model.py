@@ -32,6 +32,7 @@ def objective_wrapper(x, y, **kwargs):
                 n_estimators=rf_n_estimators,
             )
             mlflow_params["rf_max_depth"] = rf_max_depth
+            mlflow_params["rf_n_estimators"] = rf_n_estimators
 
         scores = sklearn.model_selection.cross_validate(
             classifier_obj,
